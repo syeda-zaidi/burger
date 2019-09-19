@@ -1,30 +1,23 @@
-<main>
+<div id="main" class="headerImg">
+    <img src="../public/assets/img/burger-fries.jpg" alt="headerimg" height="300px" width="300px">
+    <h1 id="first-heading"> Here is A Menu of Best Burgers In Town</h1>
+</div>
 
-    <h1> Here is A Menu of Best Burgers In Town</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4> To be devoured </h4>
+            <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        <li>
+                            {{burger_name}}
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-            
-            </div>
-
-            <div class="col-md-6">
-
-            </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2>
-                    Add a new burger !!
-                </h2>
-
-                {{!-- form  --}}
-            </div>
-        </div>
-
-        <footer>
-            
-        </footer>
     </div>
-</main>
+
+</div>
