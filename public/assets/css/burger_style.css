@@ -1,3 +1,11 @@
 .body {
-    background-image: url("https://st4.depositphotos.com/4155807/22646/v/1600/depositphotos_226468932-stock-illustration-keep-calm-eat-burger-funny.jpg");
+    background-color: darkkhaki;
+}
+
+.btn-primary {
+    margin-top: 20px;
+}
+
+h1 {
+    color: red;
 }
