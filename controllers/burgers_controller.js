@@ -14,18 +14,19 @@ router.get("/", function(req, res) {
     });
 });
 
-// router.get("/api/burgers", function(req,res) {
-//     burgersModel.selectAll(function(data){
-//         res.json(data);
-//     });
-// });
+router.get("/api/burgers", function(req,res) {
+    burgersModel.selectAll(function(data){
+        res.json(data);
+    });
+});
 
 router.post("/api/burgers", function(req, res) {
+  console.log(req.body)
     burgersModel.insertOne(
-      ["burger_name", "devoured"],
-      [req.body.burger_name, req.body.devoured],
+      ["burger_name"],
+      [req.body.burger_name],
       function(result){
-        res.json({ id: result.insertId });
+        res.redirect('/');
     });
 });
 

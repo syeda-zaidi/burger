@@ -15,7 +15,7 @@ function objectToSql(ob) {
   var array = [];
 
   for (var key in ob) {
-      array.push(key + "=" + ob[key]);
+    array.push(key + "=" + ob[key]);
   }
   return array.toString();
 };
@@ -23,9 +23,9 @@ function objectToSql(ob) {
 
 var orm = {
   selectAll: function (tableInput, cb) {
-    var queryString = "SELECT * FROM ??";
+    var queryString = "SELECT * FROM " + tableInput + ";";
 
-    connection.query(queryString, [tableInput], function (err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
@@ -56,7 +56,7 @@ var orm = {
     });
   },
 
-  updateOne: function(table, objcolvals, condition, cb) {
+  updateOne: function (table, objcolvals, condition, cb) {
     var queryString = "UPDATE " + table;
     queryString += " set ";
     queryString += objectToSql(objcolvals);
@@ -65,7 +65,7 @@ var orm = {
 
     console.log(queryString);
 
-    connection.query(queryString, function(err, res) {
+    connection.query(queryString, function (err, res) {
       if (err) {
         throw err;
       }
@@ -73,7 +73,7 @@ var orm = {
     });
   },
 
-  
+
 
 }
 

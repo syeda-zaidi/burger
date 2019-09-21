@@ -31,24 +31,15 @@
         </div>
     </div>
 
+
     <div class="row">
-
-        <form>
-            <div class="form-group">
-                <label for="newburgerInput">Add New Burger</label>
-                <input type="text" class="form-control" id="newburgerInput" placeholder="">
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="1" id="devouredcheck">
-                <label class="form-check-label" for="devouredcheck">
-                    Devoured
-                </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
+        <div class="col-md-12" id="newburgerForm">
+            {{!-- <form action="/api/burgers" method="POST"> --}}
+            <form id="form-id">
+                <input type="text" id="burger-input" name="burger_name" placeholder=""">
+                <button type="submit" class="addButton">Add Your Meal!</button>
+            </form>
+        </div>
     </div>
 
 </div>
