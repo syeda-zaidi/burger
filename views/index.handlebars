@@ -6,13 +6,28 @@
     <div class="row">
         <div class="col-md-6">
             <h4> To be devoured </h4>
-            <ul>
+            {{!-- <ul>
                 {{#each burgers}}
                 {{#unless devoured}}
-                    {{> burgers-block devoured=false}}
+                {{> burgers-block devoured=false}}
                 {{/unless}}
                 {{/each}}
-            </ul>
+            </ul> --}}
+
+            {{#each burgers}}
+            {{#unless devoured}}
+            <div>
+                <li>
+                    {{burger_name}}
+                    <form action="/api/burgers/{{this.id}}?_method=PUT" method="PUT">
+                        <button type="submit" class='to-be-devoured'>Devoure It</button>
+                    </form>
+                </li>
+            </div>
+            {{/unless}}
+            {{/each}}
+
+
         </div>
 
         <div class="col-md-6">
@@ -32,11 +47,11 @@
 
     <div class="row">
         <div class="col-md-12" id="newburgerForm">
-            {{!-- <form action="/api/burgers" method="POST"> --}}
-            <form id="form-id">
-                <input type="text" id="burger-input" name="burger_name" placeholder=""">
-                <button type="submit" class="addButton">Add Your Meal!</button>
-            </form>
+            <form action="/api/burgers" method="POST">
+                <form id="form-id">
+                    <input type="text" id="burger-input" name="burger_name" placeholder="">
+                <button type=" submit" class="addButton">Add Your Meal!</button>
+                </form>
         </div>
     </div>
 
