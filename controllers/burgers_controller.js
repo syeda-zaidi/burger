@@ -23,8 +23,8 @@ router.get("/api/burgers", function(req,res) {
 router.post("/api/burgers", function(req, res) {
   console.log(req.body)
     burgersModel.insertOne(
-      ["burger_name"],
-      [req.body.burger_name],
+      ["burger_name", "devoured"],
+      [req.body.burger_name, false],
       function(result){
         res.redirect('/');
     });
@@ -35,16 +35,18 @@ router.put("/api/burgers/:id", function(req,res) {
 
   console.log("condition : " + condition);
 
-  burgersModel.updateOne({ devoured: req.body.devoured}, condition, function(result){
-    if (result.changedRows === 0 ) {
-      return res.status(404).end();
-    } else {
-      return res.status(200).end();
-    }
+  burgersModel.updateOne(
+    { 
+      devoured: req.body.devoured
+    }, 
+    condition, 
+    function(result){
+      if (result.changedRows === 0 ) {
+        return res.status(404).end();
+      } 
+      res.status(200).end();
   });
-  
-
-})
+});
 
 
 // Export routes for server.js to use.

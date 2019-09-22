@@ -24,4 +24,21 @@ $(document).ready(function() {
 
     //add eatburger click evt to change devoured state from 0 to 1 
 
+    $(".change-to-devoured").on("click", function(event) {
+        var id = $(this).data("id");
+        var newSTATE = $(this).data("nowDevoured");
+
+        var newBurgerState = {
+            devoured = true
+        };
+
+        $.ajax("/api/burgers" + id, {
+            type: "PUT",
+            data: newBurgerState
+        }).then(function() {
+            console.log("changed state to ", newSTATE);
+            location.reload();
+        }); 
+    });
+
 });
