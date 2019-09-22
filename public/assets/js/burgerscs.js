@@ -24,19 +24,19 @@ $(document).ready(function() {
 
     //add eatburger click evt to change devoured state from 0 to 1 
 
-    $(".to-be-devoured").on("click", function(event) {
+    $(".change-to-devoured").on("click", function(event) {
         var id = $(this).data("id");
-        var newSTATE = $(this).data("nowDevoured");
-
+        // var newSTATE = $(this).data("nowDevoured");
+        console.log("ajax call to put")
         var newBurgerState = {
             devoured: true
         };
 
-        $.ajax("/api/burgers" + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newBurgerState
         }).then(function() {
-            console.log("changed state to ", newSTATE);
+            // console.log("changed state to ", newSTATE);
             location.reload();
         }); 
     });
