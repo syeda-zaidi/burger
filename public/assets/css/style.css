@@ -1,11 +1,19 @@
-.body {
-    background-color: darkkhaki;
-}
 
 .btn-primary {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 h1 {
-    color: red;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.btn-secondary {
+    margin-bottom: 20px;
+
+}
+
+.burger-name {
+    font-size: 30px;
+    font-family: monospace;
 }
